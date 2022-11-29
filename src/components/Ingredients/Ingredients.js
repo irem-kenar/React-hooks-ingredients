@@ -4,16 +4,19 @@ import IngredientForm from './IngredientForm';
 import IngredientList from './IngredientList';
 import Search from './Search';
 
-const [userIngredients, setUserIngredients] = useState([]);
 
-const addIngredientHandler = ingredient => {
-  setUserIngredients(prevIngredients => [
-    ...prevIngredients,
-    { id: Math.random().toString(), ...ingredient }
-  ]);
-};
 
 function Ingredients() {
+
+  const [userIngredients, setUserIngredients] = useState([]);
+
+  const addIngredientHandler = ingredient => {
+    setUserIngredients(prevIngredients => [
+      ...prevIngredients,
+      { id: Math.random().toString(), ...ingredient }
+    ]);
+  };
+
   return (
     <div className="App">
       <IngredientForm onAddIngredient={addIngredientHandler} />
